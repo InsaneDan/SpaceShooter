@@ -3,8 +3,8 @@ package ru.isakov.space.shooter.game.base;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import ru.isakov.space.shooter.game.math.Rect;
 
+import ru.isakov.space.shooter.game.math.Rect;
 
 public class BaseSprite extends Rect {
 

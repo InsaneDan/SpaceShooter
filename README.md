@@ -82,4 +82,22 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 ![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps3.gif)
 
 </details>
+ 
+<details>
+<summary>Урок 4. Оптимизация проекта</summary>
+
+<details>
+<summary>Задание к уроку </summary>
+
+1. Реализовать спрайт корабля
+2. Разрезать текстуру корабля на 2 части
+3. Cделать управление кораблём с помощью тача и/или клавиатуры
+4. *** Сделать ограничение движения корабля
+</details>
+
+**Решение**
+
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps4.gif)
+
+</details>
 

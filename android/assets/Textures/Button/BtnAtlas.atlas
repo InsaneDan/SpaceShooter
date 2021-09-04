@@ -1,0 +1,110 @@
+
+BtnAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blades30
+  rotate: false
+  xy: 1, 291
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blades45
+  rotate: false
+  xy: 1, 161
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blades60
+  rotate: false
+  xy: 131, 291
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blades90
+  rotate: false
+  xy: 1, 31
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+circle
+  rotate: false
+  xy: 131, 161
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesGradient
+  rotate: false
+  xy: 261, 291
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesInner
+  rotate: false
+  xy: 131, 31
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesInnerDens
+  rotate: false
+  xy: 261, 161
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesInnerDensHighlighted
+  rotate: false
+  xy: 391, 291
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesOuter1
+  rotate: false
+  xy: 261, 31
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+CirclesOuter2
+  rotate: false
+  xy: 391, 161
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Exit
+  rotate: false
+  xy: 521, 291
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Play
+  rotate: false
+  xy: 391, 31
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Comet
+  rotate: false
+  xy: 1, 1
+  size: 125, 28
+  orig: 125, 28
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 521, 276
+  size: 14, 13
+  orig: 14, 13
+  offset: 0, 0
+  index: -1

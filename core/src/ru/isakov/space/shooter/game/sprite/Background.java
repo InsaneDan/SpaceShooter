@@ -1,8 +1,8 @@
 package ru.isakov.space.shooter.game.sprite;
 
 import com.badlogic.gdx.graphics.Texture;
-
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 import ru.isakov.space.shooter.game.base.BaseSprite;
 import ru.isakov.space.shooter.game.math.Rect;
 
