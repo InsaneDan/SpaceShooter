@@ -40,6 +40,22 @@ public class BaseSprite extends Rect {
         return false;
     }
 
+    public boolean touchDragged(Vector2 touch, int pointer) {
+        return false;
+    }
+
+    public boolean keyDown(int keycode) {
+        return false;
+    }
+
+    public boolean keyUp(int keycode) {
+        return false;
+    }
+
+    public boolean keyTyped(char character) {
+        return false;
+    }
+
     public float getAngle() {
         return angle;
     }

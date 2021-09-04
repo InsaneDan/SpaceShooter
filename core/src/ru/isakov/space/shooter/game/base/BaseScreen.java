@@ -102,7 +102,7 @@ public class BaseScreen implements Screen, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        System.out.println("keyTyped character = " + character);
+        // System.out.println("keyTyped character = " + character);
         return false;
     }
 
@@ -155,4 +155,6 @@ public class BaseScreen implements Screen, InputProcessor {
         System.out.println("scrolled amountX = " + amountX + " amountY = " + amountY);
         return false;
     }
+
+
 }
