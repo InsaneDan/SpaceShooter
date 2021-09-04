@@ -1,4 +1,4 @@
-package ru.isakov.space.shooter.game.sprite;
+package ru.isakov.space.shooter.game.sprite.test;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -47,8 +47,10 @@ public class FollowerSprite extends BaseSprite {
         globalTime += delta;
         if (globalTime >= 1) globalTime = -1;
         this.scale = Math.abs(globalTime) * 0.2f + 0.8f;
+//        this.scaleX = Math.abs(globalTime) * 0.2f + 0.8f;
+//        this.scaleY = this.scaleX;
 
-        rotate(targetSprite.pos.cpy(), delta); // FIXME cpy() ??????????????
+        rotate(targetSprite.pos.cpy(), delta);
 
         if (pos.cpy().sub(targetSprite.pos).len() <= 0.01f) {
             pos.set(targetSprite.pos);

@@ -1,4 +1,4 @@
-package ru.isakov.space.shooter.game.sprite;
+package ru.isakov.space.shooter.game.sprite.test;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
