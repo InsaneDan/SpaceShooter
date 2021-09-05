@@ -1,4 +1,4 @@
-package ru.isakov.space.shooter.game.sprite;
+package ru.isakov.space.shooter.game.sprite.button;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

@@ -5,10 +5,10 @@ import com.badlogic.gdx.math.Vector2;
 
 public abstract class BaseButton extends BaseSprite {
 
-    private static final float PRESS_SCALE = 0.9f;
+    private static final float PRESS_SCALE = 0.6f;
 
     private int pointer;
-    private boolean pressed;
+    protected boolean pressed;
 
     public BaseButton(TextureRegion region) {
         super(region);
@@ -21,7 +21,8 @@ public abstract class BaseButton extends BaseSprite {
         }
         this.pointer = pointer;
         pressed = true;
-        scale = PRESS_SCALE;
+        scaleX = PRESS_SCALE;
+        scaleY = PRESS_SCALE;
         return true;
     }
 
@@ -34,7 +35,8 @@ public abstract class BaseButton extends BaseSprite {
             action();
         }
         pressed = false;
-        scale = 1;
+        scaleX = 1;
+        scaleY = 1;
         return true;
     }
 

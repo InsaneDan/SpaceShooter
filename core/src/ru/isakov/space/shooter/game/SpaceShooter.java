@@ -11,8 +11,8 @@ public class SpaceShooter extends Game {
 	@Override
 	public void create () {
 //		setScreen(new TestScreen(this));
-//		setScreen(new MenuScreen(this));
-		setScreen(new GameScreen(this));
+		setScreen(new MenuScreen(this));
+//		setScreen(new GameScreen(this));
 	}
 
 }

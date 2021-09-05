@@ -9,7 +9,8 @@ import ru.isakov.space.shooter.game.math.Rect;
 public class BaseSprite extends Rect {
 
     protected float angle;
-    protected float scale = 1;
+    protected float scaleX = 1;
+    protected float scaleY = 1;
     protected TextureRegion[] regions;
     protected int frame;
 
@@ -64,12 +65,20 @@ public class BaseSprite extends Rect {
         this.angle = angle;
     }
 
-    public float getScale() {
-        return scale;
+    public float getScaleX() {
+        return scaleX;
     }
 
-    public void setScale(float scale) {
-        this.scale = scale;
+    public void setScaleX(float scaleX) {
+        this.scaleX = scaleX;
+    }
+
+    public float getScaleY() {
+        return scaleY;
+    }
+
+    public void setScaleY(float scaleY) {
+        this.scaleY = scaleY;
     }
 
     public void draw(SpriteBatch batch) {
@@ -78,7 +87,7 @@ public class BaseSprite extends Rect {
                 getLeft(), getBottom(),
                 halfWidth, halfHeight,
                 getWidth(), getHeight(),
-                scale, scale,
+                scaleX, scaleY,
                 angle
         );
     }

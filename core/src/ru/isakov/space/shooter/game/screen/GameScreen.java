@@ -9,9 +9,7 @@ import ru.isakov.space.shooter.game.base.BaseScreen;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.sprite.Background;
 import ru.isakov.space.shooter.game.sprite.PlayerShip;
-import ru.isakov.space.shooter.game.sprite.PlayerShipPointer;
 import ru.isakov.space.shooter.game.sprite.Star;
-import ru.isakov.space.shooter.game.sprite.test.TargetSprite;
 
 public class GameScreen extends BaseScreen {
 
@@ -26,7 +24,6 @@ public class GameScreen extends BaseScreen {
     private Star[] stars;
 
     private PlayerShip playerShip;
-    private PlayerShipPointer pointer;
 
     public GameScreen(Game game) {
         this.game = game;
@@ -43,8 +40,8 @@ public class GameScreen extends BaseScreen {
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
         }
+
         playerShip = new PlayerShip(atlas);
-        pointer = new PlayerShipPointer(atlas);
 
     }
 
@@ -63,7 +60,6 @@ public class GameScreen extends BaseScreen {
             star.resize(worldBounds);
         }
         playerShip.resize(worldBounds);
-        pointer.resize(worldBounds);
     }
 
     @Override
@@ -117,7 +113,6 @@ public class GameScreen extends BaseScreen {
             star.update(delta);
         }
         playerShip.update(delta);
-        pointer.update(delta);
     }
 
     private void draw() {
@@ -127,7 +122,6 @@ public class GameScreen extends BaseScreen {
             star.draw(batch);
         }
         playerShip.draw(batch);
-        pointer.draw(batch);
         batch.end();
     }
 }
