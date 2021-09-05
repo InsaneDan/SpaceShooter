@@ -12,6 +12,8 @@ import ru.isakov.space.shooter.game.sprite.Comet;
 import ru.isakov.space.shooter.game.sprite.button.ButtonExit;
 import ru.isakov.space.shooter.game.sprite.button.ButtonPlay;
 import ru.isakov.space.shooter.game.sprite.Star;
+import ru.isakov.space.shooter.game.sprite.button.ButtonTemplate;
+import ru.isakov.space.shooter.game.sprite.button.ButtonTest;
 
 public class MenuScreen extends BaseScreen {
 
@@ -29,6 +31,7 @@ public class MenuScreen extends BaseScreen {
 
     private ButtonPlay buttonPlay;
     private ButtonExit buttonExit;
+    private ButtonTest buttonTest;
 
     public MenuScreen(Game game) {
         this.game = game;
@@ -47,8 +50,9 @@ public class MenuScreen extends BaseScreen {
             stars[i] = new Star(atlas);
         }
         comet = new Comet(btnAtlas);
-        buttonPlay = new ButtonPlay(btnAtlas, game);
-        buttonExit = new ButtonExit(btnAtlas);
+        buttonPlay = new ButtonPlay(btnAtlas, "Play", game);
+        buttonExit = new ButtonExit(btnAtlas, "Exit");
+        buttonTest = new ButtonTest(btnAtlas, game);
     }
 
     @Override
@@ -61,6 +65,7 @@ public class MenuScreen extends BaseScreen {
         comet.resize(worldBounds);
         buttonPlay.resize(worldBounds);
         buttonExit.resize(worldBounds);
+        buttonTest.resize(worldBounds);
     }
 
     @Override
@@ -81,6 +86,7 @@ public class MenuScreen extends BaseScreen {
     public boolean touchDown(Vector2 touch, int pointer, int button) {
         buttonPlay.touchDown(touch, pointer, button);
         buttonExit.touchDown(touch, pointer, button);
+        buttonTest.touchDown(touch, pointer, button);
         return false;
     }
 
@@ -88,6 +94,7 @@ public class MenuScreen extends BaseScreen {
     public boolean touchUp(Vector2 touch, int pointer, int button) {
         buttonPlay.touchUp(touch, pointer, button);
         buttonExit.touchUp(touch, pointer, button);
+        buttonTest.touchUp(touch, pointer, button);
         return false;
     }
 
@@ -98,6 +105,7 @@ public class MenuScreen extends BaseScreen {
         comet.update(delta);
         buttonPlay.update(delta);
         buttonExit.update(delta);
+        buttonTest.update(delta);
     }
 
     private void draw() {
@@ -109,6 +117,7 @@ public class MenuScreen extends BaseScreen {
         comet.draw(batch);
         buttonPlay.draw(batch);
         buttonExit.draw(batch);
+        buttonTest.draw(batch);
         batch.end();
     }
 }
