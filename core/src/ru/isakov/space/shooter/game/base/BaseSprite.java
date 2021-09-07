@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.isakov.space.shooter.game.math.Rect;
+import ru.isakov.space.shooter.game.utils.Regions;
 
 public class BaseSprite extends Rect {
 
@@ -13,6 +14,10 @@ public class BaseSprite extends Rect {
     protected float scaleY = 1;
     protected TextureRegion[] regions;
     protected int frame;
+
+    public BaseSprite(TextureRegion region, int rows, int cols, int frames) {
+        this.regions = Regions.split(region, rows, cols, frames);
+    }
 
     public BaseSprite(TextureRegion region) {
         regions = new TextureRegion[1];
