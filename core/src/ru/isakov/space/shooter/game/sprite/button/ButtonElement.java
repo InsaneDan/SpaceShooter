@@ -1,6 +1,5 @@
 package ru.isakov.space.shooter.game.sprite.button;
 
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

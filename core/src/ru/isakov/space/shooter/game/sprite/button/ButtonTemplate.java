@@ -1,7 +1,6 @@
 package ru.isakov.space.shooter.game.sprite.button;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -25,6 +24,7 @@ public abstract class ButtonTemplate extends BaseButton {
         super(atlas.findRegion("circle"));
         this.scaleX = scale;
         this.scaleY = scale;
+        this.initialScale = scale;
         this.textColor = new Color(color).add(0.7f, 0.7f, 0.7f, 1f);
         this.backColor = new Color(color).sub(0.4f,0.4f,0.4f,0f);
         buttonElements.addAll(Arrays.asList(

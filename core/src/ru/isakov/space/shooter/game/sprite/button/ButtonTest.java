@@ -18,7 +18,6 @@ public class ButtonTest extends ButtonTemplate {
     }
 
     public void resize(Rect worldBounds) {
-        System.out.println("getWidth: " + worldBounds.getWidth() + " getHalfWidth: " + worldBounds.getHalfWidth() + " getLeft: " + worldBounds.getLeft() + " getRight: " + worldBounds.getRight());
         super.resize(worldBounds,
                 0,
                 worldBounds.getBottom() + PADDING + this.getHalfHeight());

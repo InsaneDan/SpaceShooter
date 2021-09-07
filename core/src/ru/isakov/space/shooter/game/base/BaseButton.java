@@ -9,12 +9,10 @@ public abstract class BaseButton extends BaseSprite {
 
     private int pointer;
     protected boolean pressed;
-    private float actualScaleX, actualScaleY;
+    protected float initialScale;
 
     public BaseButton(TextureRegion region) {
         super(region);
-        actualScaleX = this.getWidth();
-        actualScaleY = this.getHeight();
     }
 
     @Override
@@ -38,8 +36,8 @@ public abstract class BaseButton extends BaseSprite {
             action();
         }
         pressed = false;
-        scaleX = actualScaleX;
-        scaleY = actualScaleY;
+        scaleX = initialScale;
+        scaleY = initialScale;
         return true;
     }
 

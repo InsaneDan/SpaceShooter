@@ -1,13 +1,16 @@
 package ru.isakov.space.shooter.game.utils;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.base.BaseShip;
 import ru.isakov.space.shooter.game.math.Rect;
+import ru.isakov.space.shooter.game.sprite.PlayerShip;
 
 public class MovementController {
 
-    private BaseShip ship;
+    private PlayerShip ship;
 
+    private static final int INVALID_POINTER = -1; // TODO необходима проверка мультитач
     public static final float MOVE_INTERVAL = 0.00005f;
     public static final float BRAKING = 0.15f;
 
@@ -20,8 +23,9 @@ public class MovementController {
     private boolean moveRight;
     private boolean moveUp;
     private boolean moveDown;
+    private int pointerNum = INVALID_POINTER;
 
-    public MovementController(BaseShip ship) {
+    public MovementController(PlayerShip ship) {
         this.ship = ship;
     }
 
@@ -31,7 +35,6 @@ public class MovementController {
     }
 
     public void update(float delta) {
-        System.out.println(destination + " " + destination.len());
         if (touch == null) {
             if (moveLeft) destination.x -= MOVE_INTERVAL / delta;
             if (moveRight) destination.x += MOVE_INTERVAL / delta;
@@ -108,6 +111,9 @@ public class MovementController {
                 break;
             case 20:
                 moveDown = true;
+                break;
+            case Input.Keys.SPACE:
+                ship.shoot(); // extra shoot!
                 break;
         }
         return false;

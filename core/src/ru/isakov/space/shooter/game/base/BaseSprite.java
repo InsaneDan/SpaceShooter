@@ -14,6 +14,10 @@ public class BaseSprite extends Rect {
     protected float scaleY = 1;
     protected TextureRegion[] regions;
     protected int frame;
+    private boolean destroyed;
+
+    public BaseSprite() {
+    }
 
     public BaseSprite(TextureRegion region, int rows, int cols, int frames) {
         this.regions = Regions.split(region, rows, cols, frames);
@@ -84,6 +88,18 @@ public class BaseSprite extends Rect {
 
     public void setScaleY(float scaleY) {
         this.scaleY = scaleY;
+    }
+
+    public void destroy() {
+        destroyed = true;
+    }
+
+    public void flushDestroy() {
+        destroyed = false;
+    }
+
+    public boolean isDestroyed() {
+        return destroyed;
     }
 
     public void draw(SpriteBatch batch) {
