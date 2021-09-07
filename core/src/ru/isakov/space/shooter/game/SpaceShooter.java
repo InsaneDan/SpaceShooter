@@ -2,17 +2,27 @@ package ru.isakov.space.shooter.game;
 
 import com.badlogic.gdx.Game;
 
-import ru.isakov.space.shooter.game.screen.GameScreen;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import ru.isakov.space.shooter.game.screen.MenuScreen;
-import ru.isakov.space.shooter.game.screen.TestScreen;
 
 public class SpaceShooter extends Game {
-	
+
+	Music music;
+
 	@Override
 	public void create () {
-//		setScreen(new TestScreen(this));
+
 		setScreen(new MenuScreen(this));
-//		setScreen(new GameScreen(this));
+
+		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
+		music.play();
+	}
+
+	@Override
+	public void dispose() {
+		music.dispose();
+		super.dispose();
 	}
 
 }

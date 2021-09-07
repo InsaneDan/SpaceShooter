@@ -58,7 +58,7 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 
 **! TODO:** Pасcчитать через взаимодействие (сложение) векторов - положение и ускорение - не получилось.
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps2.gif)
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps2.gif)
 
 </details>
  
@@ -79,7 +79,7 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 - для вращения выбирается меньший угол;
 - при выравнивании угловой скорости и скорости поворота - объект может уйти в бесконечную петлю, если не сдвинуть мишень.
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps3.gif)
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps3.gif)
 
 </details>
  
@@ -104,7 +104,7 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 - небольшая инерционность движения, плавный разгон и торможение, запрет выхода за пределы экрана – фактически игрок двигает указатель, за которым следует корабль (пока указатель видимый, в дальнейшем – уберу). Проверка границ только для указателя, т.к. траектория корабля заканчивается в этой точке, то за границы игрового экрана он вылететь не может.
 - временная кнопка с тестовым экраном.
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps4.gif)
+![LibGDX_lesson3_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps4.gif)
 
 </details>
  
@@ -119,17 +119,10 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 </details>
 
 **Решение**
-- MenuScreen - добавлены пролетающие кометы и кнопки;
-- класс Rnd убрал – используем com.badlogic.gdx.math.MathUtils.random (а он в свою очередь реализует java.util.Random);
-- чтобы имитировать вращение элементов кнопок, поле scale в классе Rect разбито на scaleX и scaleY;
-- кнопки - общий абстрактный класс ButtonTemplate наследуется от BaseButton, содержит список спрайтов элементов (ButtonElement) и "подложку". Параметры ButtonElement могут определять разное поведение спрайта. В шаблон передается атлас текстур, цвет кнопки, текст (выбор из атласа или пустой), направление вращения и масштаб.
-- реализация управления – клавиатура, тачпад;
-- небольшая инерционность движения, плавный разгон и торможение, запрет выхода за пределы экрана – фактически игрок двигает указатель, за которым следует корабль (пока указатель видимый, в дальнейшем – уберу). Проверка границ только для указателя, т.к. траектория корабля заканчивается в этой точке, то за границы игрового экрана он вылететь не может.
-- временная кнопка с тестовым экраном.
+- автострельба через накопительный счетчик deltaTime в методе update (PlayerShip);
+- добавлены звуки выстрелов для игрового корабля;
+- добавлена фоновая музыка (в основной класс - SpaceShooter).
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps4.gif)
+![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps5.gif)
 
 </details>
-
-
-

@@ -12,7 +12,6 @@ import ru.isakov.space.shooter.game.sprite.Comet;
 import ru.isakov.space.shooter.game.sprite.button.ButtonExit;
 import ru.isakov.space.shooter.game.sprite.button.ButtonPlay;
 import ru.isakov.space.shooter.game.sprite.Star;
-import ru.isakov.space.shooter.game.sprite.button.ButtonTemplate;
 import ru.isakov.space.shooter.game.sprite.button.ButtonTest;
 
 public class MenuScreen extends BaseScreen {
