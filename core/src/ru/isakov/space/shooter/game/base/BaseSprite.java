@@ -5,13 +5,23 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.isakov.space.shooter.game.math.Rect;
+import ru.isakov.space.shooter.game.utils.Regions;
 
 public class BaseSprite extends Rect {
 
     protected float angle;
-    protected float scale = 1;
+    protected float scaleX = 1;
+    protected float scaleY = 1;
     protected TextureRegion[] regions;
     protected int frame;
+    private boolean destroyed;
+
+    public BaseSprite() {
+    }
+
+    public BaseSprite(TextureRegion region, int rows, int cols, int frames) {
+        this.regions = Regions.split(region, rows, cols, frames);
+    }
 
     public BaseSprite(TextureRegion region) {
         regions = new TextureRegion[1];
@@ -40,6 +50,22 @@ public class BaseSprite extends Rect {
         return false;
     }
 
+    public boolean touchDragged(Vector2 touch, int pointer) {
+        return false;
+    }
+
+    public boolean keyDown(int keycode) {
+        return false;
+    }
+
+    public boolean keyUp(int keycode) {
+        return false;
+    }
+
+    public boolean keyTyped(char character) {
+        return false;
+    }
+
     public float getAngle() {
         return angle;
     }
@@ -48,12 +74,32 @@ public class BaseSprite extends Rect {
         this.angle = angle;
     }
 
-    public float getScale() {
-        return scale;
+    public float getScaleX() {
+        return scaleX;
     }
 
-    public void setScale(float scale) {
-        this.scale = scale;
+    public void setScaleX(float scaleX) {
+        this.scaleX = scaleX;
+    }
+
+    public float getScaleY() {
+        return scaleY;
+    }
+
+    public void setScaleY(float scaleY) {
+        this.scaleY = scaleY;
+    }
+
+    public void destroy() {
+        destroyed = true;
+    }
+
+    public void flushDestroy() {
+        destroyed = false;
+    }
+
+    public boolean isDestroyed() {
+        return destroyed;
     }
 
     public void draw(SpriteBatch batch) {
@@ -62,7 +108,7 @@ public class BaseSprite extends Rect {
                 getLeft(), getBottom(),
                 halfWidth, halfHeight,
                 getWidth(), getHeight(),
-                scale, scale,
+                scaleX, scaleY,
                 angle
         );
     }

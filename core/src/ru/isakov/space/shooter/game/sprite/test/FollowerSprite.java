@@ -46,9 +46,8 @@ public class FollowerSprite extends BaseSprite {
         super.update(delta);
         globalTime += delta;
         if (globalTime >= 1) globalTime = -1;
-        this.scale = Math.abs(globalTime) * 0.2f + 0.8f;
-//        this.scaleX = Math.abs(globalTime) * 0.2f + 0.8f;
-//        this.scaleY = this.scaleX;
+        this.scaleX = Math.abs(globalTime) * 0.2f + 0.8f;
+        this.scaleY = Math.abs(globalTime) * 0.2f + 0.8f;
 
         rotate(targetSprite.pos.cpy(), delta);
 
