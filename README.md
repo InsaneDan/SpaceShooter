@@ -107,4 +107,30 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 ![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps4.gif)
 
 </details>
+ 
+<details>
+<summary>Урок 5. Доработка игровой логики</summary>
+
+<details>
+<summary>Задание к уроку </summary>
+
+1. Разобраться с классами Sound(http://www.libgdx.ru/2013/10/sound-effects.html) и Music(http://www.libgdx.ru/2013/10/streaming-music.html) (можно мне вопросы задавать) и реализовать фоновую музыку и звуки выстрелов
+2. Реализовать автострельбу (подсказка: таймер в update)
+</details>
+
+**Решение**
+- MenuScreen - добавлены пролетающие кометы и кнопки;
+- класс Rnd убрал – используем com.badlogic.gdx.math.MathUtils.random (а он в свою очередь реализует java.util.Random);
+- чтобы имитировать вращение элементов кнопок, поле scale в классе Rect разбито на scaleX и scaleY;
+- кнопки - общий абстрактный класс ButtonTemplate наследуется от BaseButton, содержит список спрайтов элементов (ButtonElement) и "подложку". Параметры ButtonElement могут определять разное поведение спрайта. В шаблон передается атлас текстур, цвет кнопки, текст (выбор из атласа или пустой), направление вращения и масштаб.
+- реализация управления – клавиатура, тачпад;
+- небольшая инерционность движения – фактически игрок двигает указатель, за которым следует корабль;
+- запрет выхода за пределы границ экрана;
+- вынес управление кораблем в отдельный класс.
+
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX_sps4.gif)
+
+</details>
+
+
 
