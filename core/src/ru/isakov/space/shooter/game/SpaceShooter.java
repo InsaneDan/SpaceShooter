@@ -16,7 +16,7 @@ public class SpaceShooter extends Game {
 		setScreen(new MenuScreen(this));
 
 		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
-		music.play();
+//		music.play(); // FIXME не забыть включить музыку )
 	}
 
 	@Override
