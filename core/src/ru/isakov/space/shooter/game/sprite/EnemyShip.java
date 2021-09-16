@@ -1,7 +1,9 @@
 package ru.isakov.space.shooter.game.sprite;
 
 import com.badlogic.gdx.audio.Sound;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.base.BaseShip;
 import ru.isakov.space.shooter.game.math.Rect;
@@ -45,5 +47,4 @@ public class EnemyShip extends BaseShip {
         this.shotVolume = enemySettingsTemplate.getShotVolume();
         this.bulletSound = bulletSound;
     }
-
 }

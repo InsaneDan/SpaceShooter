@@ -1,6 +1,7 @@
 package ru.isakov.space.shooter.game.base;
 
 import com.badlogic.gdx.audio.Sound;
+
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.math.Rect;
@@ -25,6 +26,7 @@ public class BaseShip extends BaseSprite {
     protected Vector2 bulletPos;
     protected float bulletHeight;
     protected int bulletDamage;
+
     // параметры выстрела
     protected float shotTime;
     protected float shotsPerSecond = 1f;
