@@ -6,26 +6,28 @@ import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.base.BaseShip;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.pool.BulletPool;
+import ru.isakov.space.shooter.game.pool.ExplosionPool;
 import ru.isakov.space.shooter.game.utils.MovementController;
 
 public class PlayerShip extends BaseShip {
 
-    public static final int HP = 100;
+    public static final int HP = 2;
 
     private MovementController controller;
 
-    public PlayerShip(TextureAtlas atlas, BulletPool bulletPool, Sound bulletSound) {
+    public PlayerShip(TextureAtlas atlas, BulletPool bulletPool, ExplosionPool explosionPool, Sound bulletSound) {
         super(atlas.findRegion("main_ship"), 1, 2, 2);
         controller = new MovementController(this);
-        super.bulletPool = bulletPool;
-        super.bulletRegion = atlas.findRegion("bulletMainShip");
-        super.bulletV = new Vector2(0, 0.5f);
-        super.bulletPos = new Vector2();
-        super.bulletHeight = 0.01f;
-        super.bulletDamage = 1;
-        super.shotsPerSecond = 10f;
+        this.bulletPool = bulletPool;
+        this.explosionPool = explosionPool;
+        this.bulletRegion = atlas.findRegion("bulletMainShip");
+        this.bulletV = new Vector2(0, 0.5f);
+        this.bulletPos = new Vector2();
+        this.bulletHeight = 0.01f;
+        this.bulletDamage = 1;
+        this.shotsPerSecond = 10f;
         this.bulletSound = bulletSound;
-        super.hp = HP;
+        this.hp = HP;
     }
 
     @Override
@@ -42,6 +44,15 @@ public class PlayerShip extends BaseShip {
         super.update(delta);
         bulletPos.set(pos.x, pos.y + getHalfHeight());
         controller.update(delta);
+    }
+
+    // TODO вынести isCollision в родительский класс, top-bottom определить через getOwner
+    public boolean isCollision(Rect rect) {
+        return !(rect.getRight() < getLeft()
+                || rect.getLeft() > getRight()
+                || rect.getBottom() > pos.y
+                || rect.getTop() < getBottom()
+        );
     }
 
     @Override
@@ -70,7 +81,4 @@ public class PlayerShip extends BaseShip {
         return controller.keyUp(keycode);
     }
 
-    public void shoot() {
-        super.shoot();
-    }
 }

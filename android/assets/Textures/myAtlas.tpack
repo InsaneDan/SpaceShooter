@@ -1,0 +1,117 @@
+
+myAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+explosion
+  rotate: false
+  xy: 1, 1
+  size: 3072, 3072
+  orig: 3072, 3072
+  offset: 0, 0
+  index: -1
+enemy9
+  rotate: false
+  xy: 3075, 2567
+  size: 776, 506
+  orig: 776, 506
+  offset: 0, 0
+  index: -1
+enemy2
+  rotate: false
+  xy: 3075, 2378
+  size: 510, 187
+  orig: 510, 187
+  offset: 0, 0
+  index: -1
+main_ship
+  rotate: false
+  xy: 3075, 2093
+  size: 388, 283
+  orig: 388, 283
+  offset: 0, 0
+  index: -1
+enemy8
+  rotate: false
+  xy: 3075, 1836
+  size: 390, 255
+  orig: 390, 255
+  offset: 0, 0
+  index: -1
+enemy7
+  rotate: false
+  xy: 3075, 1583
+  size: 414, 251
+  orig: 414, 251
+  offset: 0, 0
+  index: -1
+enemy5
+  rotate: false
+  xy: 3075, 1326
+  size: 382, 255
+  orig: 382, 255
+  offset: 0, 0
+  index: -1
+enemy6
+  rotate: false
+  xy: 3075, 1067
+  size: 352, 257
+  orig: 352, 257
+  offset: 0, 0
+  index: -1
+enemy4
+  rotate: false
+  xy: 3075, 878
+  size: 336, 187
+  orig: 336, 187
+  offset: 0, 0
+  index: -1
+enemy3
+  rotate: false
+  xy: 3075, 622
+  size: 268, 254
+  orig: 268, 254
+  offset: 0, 0
+  index: -1
+enemy1
+  rotate: false
+  xy: 3075, 472
+  size: 276, 148
+  orig: 276, 148
+  offset: 0, 0
+  index: -1
+button_new_game
+  rotate: false
+  xy: 3075, 398
+  size: 523, 72
+  orig: 523, 72
+  offset: 0, 0
+  index: -1
+message_game_over
+  rotate: false
+  xy: 3075, 324
+  size: 523, 72
+  orig: 523, 72
+  offset: 0, 0
+  index: -1
+bulletEnemy
+  rotate: false
+  xy: 3465, 2360
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bulletMainShip
+  rotate: false
+  xy: 3345, 860
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 3587, 2555
+  size: 11, 10
+  orig: 11, 10
+  offset: 0, 0
+  index: -1

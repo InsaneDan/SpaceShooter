@@ -148,4 +148,34 @@ SubProjects for Desktop, Android, iOS and Html are planned.
 ![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps6.gif)
 
 </details>
+ 
+<details>
+<summary>Урок 7. Работа с камерой и звуками</summary>
+
+<details>
+<summary>Задание к уроку </summary>
+Добавить надпись GAME_OVER и кнопку начала новой игры NEW_GAME. При нажатии на кнопку начинать игру заново.
+</details>
+
+**Решение**
+* общий метод для проверки коллизий при попадании пуль реализован в родительском классе BaseShip - реализация через проверку rect instanceof Bullet и дальше проверяем  bullet.getOwner();
+
+
+![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps7.gif)
+
+</details>
+ 
+<details>
+<summary>Урок 8. Финальная доработка проекта</summary>
+
+<details>
+<summary>Задание к уроку </summary>
+
+</details>
+
+**Решение**
+
+![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps8.gif)
+
+</details>
 

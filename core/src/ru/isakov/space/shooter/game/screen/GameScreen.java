@@ -11,10 +11,11 @@ import ru.isakov.space.shooter.game.base.BaseScreen;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.pool.BulletPool;
 import ru.isakov.space.shooter.game.pool.EnemyPool;
-import ru.isakov.space.shooter.game.sprite.Background;
-import ru.isakov.space.shooter.game.sprite.PlayerShip;
-import ru.isakov.space.shooter.game.sprite.Star;
+import ru.isakov.space.shooter.game.pool.ExplosionPool;
+import ru.isakov.space.shooter.game.sprite.*;
 import ru.isakov.space.shooter.game.utils.EnemyEmitter;
+
+import java.util.List;
 
 public class GameScreen extends BaseScreen {
 
@@ -32,6 +33,8 @@ public class GameScreen extends BaseScreen {
     private BulletPool bulletPool;
     private Sound playerShipShootSound;
 
+    protected ExplosionPool explosionPool;
+    private Sound explosionSound;
     private EnemyPool enemyPool;
     private EnemyEmitter enemyEmitter;
     private Sound enemyShipShootSound;
@@ -54,11 +57,12 @@ public class GameScreen extends BaseScreen {
 
         bulletPool = new BulletPool();
         playerShipShootSound = Gdx.audio.newSound(Gdx.files.internal("sounds/laser.wav"));
-        playerShip = new PlayerShip(atlas, bulletPool, playerShipShootSound);
-
-        enemyPool = new EnemyPool(bulletPool, worldBounds);
+        explosionSound = Gdx.audio.newSound(Gdx.files.internal("sounds/explosion.wav"));
+        explosionPool = new ExplosionPool(atlas, explosionSound);
+        enemyPool = new EnemyPool(bulletPool, explosionPool, worldBounds);
         enemyShipShootSound = Gdx.audio.newSound(Gdx.files.internal("sounds/bullet.wav"));
         enemyEmitter = new EnemyEmitter(atlas, enemyPool, worldBounds, enemyShipShootSound);
+        playerShip = new PlayerShip(atlas, bulletPool, explosionPool, playerShipShootSound);
 
     }
 
@@ -66,6 +70,7 @@ public class GameScreen extends BaseScreen {
     public void render(float delta) {
         super.render(delta);
         update(delta);
+        checkCollisions();
         freeAllDestroyed();
         draw();
     }
@@ -88,60 +93,58 @@ public class GameScreen extends BaseScreen {
         playerShipShootSound.dispose();
         bulletPool.dispose();
         enemyShipShootSound.dispose();
+        explosionPool.dispose();
+        explosionSound.dispose();
         enemyPool.dispose();
-    }
-
-    @Override
-    public boolean touchDown(Vector2 touch, int pointer, int button) {
-        playerShip.touchDown(touch, pointer, button);
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(Vector2 touch, int pointer, int button) {
-        playerShip.touchUp(touch, pointer, button);
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(Vector2 touch, int pointer) {
-        playerShip.touchDragged(touch, pointer);
-        return false;
-    }
-
-    @Override
-    public boolean keyDown(int keycode) {
-        super.keyDown(keycode);
-        playerShip.keyDown(keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        super.keyUp(keycode);
-        playerShip.keyUp(keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        super.keyTyped(character);
-        playerShip.keyTyped(character);
-        return false;
     }
 
     private void update(float delta) {
         for (Star star : stars) {
             star.update(delta);
         }
-        playerShip.update(delta);
-        bulletPool.updateActiveSprites(delta);
-        enemyPool.updateActiveSprites(delta);
-        enemyEmitter.generate(delta);
+        explosionPool.updateActiveSprites(delta);
+        if (!playerShip.isDestroyed()) {
+            playerShip.update(delta);
+            bulletPool.updateActiveSprites(delta);
+            enemyPool.updateActiveSprites(delta);
+            enemyEmitter.generate(delta);
+        }
+    }
+
+    // TODO попробовать полигональные формы для проверки коллизий: https://www.codeandweb.com/physicseditor
+    private void checkCollisions() {
+        if (playerShip.isDestroyed()) {
+            return;
+        }
+        List<EnemyShip> enemyShipList = enemyPool.getActiveObjects();
+        for (EnemyShip enemyShip : enemyShipList) {
+            float minDst = enemyShip.getHalfWidth() + playerShip.getHalfWidth() * 0.75f;
+            if (playerShip.pos.dst(enemyShip.pos) < minDst) {
+                enemyShip.destroy();
+                playerShip.damage(enemyShip.getBulletDamage() * 3);
+            }
+        }
+        List<Bullet> bulletList = bulletPool.getActiveObjects();
+        for (Bullet bullet : bulletList) {
+            if (bullet.getOwner() != playerShip) {
+                if (playerShip.isCollision(bullet)) {
+                    playerShip.damage(bullet.getDamage());
+                    bullet.destroy();
+                }
+            } else {
+                for (EnemyShip enemyShip : enemyShipList) {
+                    if (enemyShip.isCollision(bullet)) {
+                        enemyShip.damage(bullet.getDamage());
+                        bullet.destroy();
+                    }
+                }
+            }
+        }
     }
 
     private void freeAllDestroyed() {
         bulletPool.freeAllDestroyedActiveSprites();
+        explosionPool.freeAllDestroyedActiveSprites();
         enemyPool.freeAllDestroyedActiveSprites();
     }
 
@@ -151,9 +154,55 @@ public class GameScreen extends BaseScreen {
         for (Star star : stars) {
             star.draw(batch);
         }
-        playerShip.draw(batch);
-        bulletPool.drawActiveSprites(batch);
-        enemyPool.drawActiveSprites(batch);
+        if (!playerShip.isDestroyed()) {
+            playerShip.draw(batch);
+            enemyPool.drawActiveSprites(batch);
+            bulletPool.drawActiveSprites(batch);
+        }
+        explosionPool.drawActiveSprites(batch);
         batch.end();
+    }
+
+
+    @Override
+    public boolean touchDown(Vector2 touch, int pointer, int button) {
+        if (!playerShip.isDestroyed()) {
+            playerShip.touchDown(touch, pointer, button);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean touchUp(Vector2 touch, int pointer, int button) {
+        if (!playerShip.isDestroyed()) {
+            playerShip.touchUp(touch, pointer, button);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(Vector2 touch, int pointer) {
+        if (!playerShip.isDestroyed()) {
+            playerShip.touchDragged(touch, pointer);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean keyDown(int keycode) {
+        if (!playerShip.isDestroyed()) {
+            super.keyDown(keycode);
+            playerShip.keyDown(keycode);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        if (!playerShip.isDestroyed()) {
+            super.keyUp(keycode);
+            playerShip.keyUp(keycode);
+        }
+        return false;
     }
 }

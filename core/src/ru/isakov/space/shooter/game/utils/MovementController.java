@@ -2,7 +2,6 @@ package ru.isakov.space.shooter.game.utils;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
-import ru.isakov.space.shooter.game.base.BaseShip;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.sprite.PlayerShip;
 

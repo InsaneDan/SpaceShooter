@@ -15,7 +15,9 @@ public class EnemySettingsTemplate {
     protected float shotsPerSecond;
     protected float shotVolume;
 
-    public EnemySettingsTemplate(String shipRegionName, float height, Vector2 v, int hp, String bulletRegionName, float bulletHight, Vector2 bulletV, int bulletDamage, float shotsPerSecond, float shotVolume) {
+    protected String explosionRegionName;
+
+    public EnemySettingsTemplate(String shipRegionName, float height, Vector2 v, int hp, String bulletRegionName, float bulletHight, Vector2 bulletV, int bulletDamage, float shotsPerSecond, float shotVolume, String explosionRegionName) {
         this.shipRegionName = shipRegionName;
         this.height = height;
         this.v = v;
@@ -26,6 +28,7 @@ public class EnemySettingsTemplate {
         this.bulletDamage = bulletDamage;
         this.shotsPerSecond = shotsPerSecond;
         this.shotVolume = shotVolume;
+        this.explosionRegionName = explosionRegionName;
     }
 
     public String getShipRegionName() {
@@ -66,5 +69,9 @@ public class EnemySettingsTemplate {
 
     public float getShotVolume() {
         return shotVolume;
+    }
+
+    public String getExplosionRegionName() {
+        return explosionRegionName;
     }
 }

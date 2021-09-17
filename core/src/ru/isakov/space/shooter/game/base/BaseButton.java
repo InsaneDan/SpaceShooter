@@ -2,6 +2,7 @@ package ru.isakov.space.shooter.game.base;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import ru.isakov.space.shooter.game.math.Rect;
 
 public abstract class BaseButton extends BaseSprite {
 
@@ -39,6 +40,12 @@ public abstract class BaseButton extends BaseSprite {
         scaleX = initialScale;
         scaleY = initialScale;
         return true;
+    }
+
+    @Override
+    public void resize(Rect worldBounds) {
+        initialScale = scaleX;
+        super.resize(worldBounds);
     }
 
     public abstract void action();
