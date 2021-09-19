@@ -14,7 +14,7 @@ import ru.isakov.space.shooter.game.utils.Regions;
 
 public class EnemyShip extends BaseShip {
 
-    public static final Vector2 startV = new Vector2(0, -0.25f);
+    public static final Vector2 startV = new Vector2(0, -0.3f);
 
     public EnemyShip(BulletPool bulletPool, ExplosionPool explosionPool, Rect worldBounds) {
         this.bulletPool = bulletPool;
@@ -22,32 +22,20 @@ public class EnemyShip extends BaseShip {
         this.bulletV = new Vector2();
         this.bulletPos = new Vector2();
         this.explosionPool = explosionPool;
-        this.v = startV; // начальная скорость для быстрого появления на экране
     }
 
     @Override
     public void update(float delta) {
         super.update(delta);
-        if (getTop() < worldBounds.getTop() && getBottom() > worldBounds.getBottom()) {
+        if (this.getTop() < worldBounds.getTop() && this.getBottom() > worldBounds.getBottom()) {
             v.set(v0);
         } else {
+            this.v.set(startV); // начальная скорость для быстрого появления на экране
             shotTime = 60 / shotsPerSecond * delta * 0.7f;
         }
         this.bulletPos.set(pos.x, pos.y - getHalfHeight());
         if (getBottom() < worldBounds.getBottom()) {
             destroy();
         }
-    }
-
-
-
-    // TODO вынести isCollision в родительский класс, top-bottom определить через getOwner
-    public boolean isCollision(Rect rect) {
-        return !(
-                rect.getRight() < getLeft()
-                        || rect.getLeft() > getRight()
-                        || rect.getBottom() > getTop()
-                        || rect.getTop() < pos.y
-        );
     }
 }

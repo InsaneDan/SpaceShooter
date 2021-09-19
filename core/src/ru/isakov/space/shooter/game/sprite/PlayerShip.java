@@ -46,15 +46,6 @@ public class PlayerShip extends BaseShip {
         controller.update(delta);
     }
 
-    // TODO вынести isCollision в родительский класс, top-bottom определить через getOwner
-    public boolean isCollision(Rect rect) {
-        return !(rect.getRight() < getLeft()
-                || rect.getLeft() > getRight()
-                || rect.getBottom() > pos.y
-                || rect.getTop() < getBottom()
-        );
-    }
-
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
         return controller.touchDown(touch, pointer, button);
