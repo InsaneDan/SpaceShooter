@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.base.BaseSprite;
 import ru.isakov.space.shooter.game.math.Rect;
 
-
 public class Bullet extends BaseSprite {
 
     private final Vector2 v = new Vector2();

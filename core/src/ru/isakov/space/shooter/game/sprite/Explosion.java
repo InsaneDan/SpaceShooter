@@ -14,23 +14,28 @@ public class Explosion extends BaseSprite {
     private float animateTimer;
 
     public Explosion(TextureAtlas atlas, Sound explosionSound) {
-        super(atlas.findRegion("explosion"), 12, 12, 144);
+        super(atlas.findRegion("explosion"), 12, 12, 143);
         this.explosionSound = explosionSound;
+        animateTimer = 0;
+        frame = 0;
     }
 
     public void set(Vector2 pos, float height) {
         this.pos.set(pos);
         setHeightProportion(height);
-        explosionSound.play(0.005f);
+        explosionSound.play(0.003f);
     }
 
     @Override
     public void update(float delta) {
-        animateTimer += delta;
-        if (animateTimer >= ANIMATE_INTERVAL) {
-            animateTimer = 0f;
-            if (++frame == regions.length) {
-                destroy();
+        if (!this.isDestroyed()) {
+            animateTimer += delta;
+            if (animateTimer >= ANIMATE_INTERVAL) {
+                animateTimer = 0f;
+                if (++frame == regions.length) {
+                    frame = 0;
+                    destroy();
+                }
             }
         }
     }
@@ -38,6 +43,7 @@ public class Explosion extends BaseSprite {
     @Override
     public void destroy() {
         super.destroy();
-        frame = 0;
+        frame = 1;
+        animateTimer = 0f;
     }
 }

@@ -39,7 +39,7 @@ public class BaseShip extends BaseSprite {
     protected Sound bulletSound;
     protected float shotVolume;
 
-    private float getDamageAnimateTimer = DAMAGE_ANIMATE_INTERVAL;
+    private float damageAnimateTimer = DAMAGE_ANIMATE_INTERVAL;
     protected ExplosionPool explosionPool;
 
     public BaseShip() {
@@ -48,33 +48,6 @@ public class BaseShip extends BaseSprite {
     public BaseShip(TextureRegion region, int rows, int cols, int frames) {
         super(region, rows, cols, frames);
     }
-
-//    public void set(
-//            TextureRegion[] regions,
-//            Vector2 v0,
-//            int hp,
-//            TextureRegion bulletRegion,
-//            float bulletHeight,
-//            Vector2 bulletV,
-//            int bulletDamage,
-//            float shotsPerSecond,
-//            Sound bulletSound,
-//            float height,
-//            float shotVolume
-//    ) {
-//        this.regions = regions;
-//        setHeightProportion(height);
-//        this.v0 = v0;
-//        this.v = v0;
-//        this.hp = hp;
-//        this.bulletRegion = bulletRegion;
-//        this.bulletHeight = bulletHeight;
-//        this.bulletV = bulletV;
-//        this.bulletDamage = bulletDamage;
-//        this.shotsPerSecond = shotsPerSecond;
-//        this.bulletSound = bulletSound;
-//        this.shotVolume = shotVolume;
-//    }
 
     public void set(TextureAtlas atlas, EnemySettingsTemplate enemySettingsTemplate, Sound bulletSound) {
         this.regions = Regions.split(atlas.findRegion(enemySettingsTemplate.getShipRegionName()), 1, 2, 2);
@@ -89,6 +62,11 @@ public class BaseShip extends BaseSprite {
         this.shotsPerSecond = enemySettingsTemplate.getShotsPerSecond();
         this.shotVolume = enemySettingsTemplate.getShotVolume();
         this.bulletSound = bulletSound;
+        this.shotTime = 0f;
+    }
+
+    public int getHp() {
+        return hp;
     }
 
     @Override
@@ -100,9 +78,10 @@ public class BaseShip extends BaseSprite {
             shoot();
         }
 
-        getDamageAnimateTimer += delta;
-        if (getDamageAnimateTimer >= DAMAGE_ANIMATE_INTERVAL) {
+        damageAnimateTimer += delta;
+        if (damageAnimateTimer >= DAMAGE_ANIMATE_INTERVAL) {
             frame = 0;
+            damageAnimateTimer = 0;
         }
     }
 
@@ -117,6 +96,13 @@ public class BaseShip extends BaseSprite {
         super.destroy();
         shotTime = 0;
         boom();
+        damageAnimateTimer = 0;
+    }
+
+    public void destroySilently() {
+        super.destroy();
+        shotTime = 0;
+        damageAnimateTimer = 0;
     }
 
     public void damage(int damage) {
@@ -126,11 +112,14 @@ public class BaseShip extends BaseSprite {
             destroy();
         }
         frame = 1;
-        getDamageAnimateTimer = 0;
     }
 
     public int getBulletDamage() {
         return bulletDamage;
+    }
+
+    public void setBulletDamage(int bulletDamage) {
+        this.bulletDamage = bulletDamage;
     }
 
     public void boom() {
