@@ -7,7 +7,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
+import com.badlogic.gdx.utils.Align;
 import ru.isakov.space.shooter.game.base.BaseScreen;
+import ru.isakov.space.shooter.game.base.Font;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.pool.BulletPool;
 import ru.isakov.space.shooter.game.pool.EnemyPool;
@@ -19,9 +21,13 @@ import java.util.List;
 
 public class GameScreen extends BaseScreen {
 
-    private final Game game;
-
     private static final int STAR_COUNT = 64;
+    public static final float MARGIN = 0.01f;
+    public static final String FRAGS = "Frags: ";
+    private static final String HP = "HP: ";
+    private static final String LEVEL = "Level: ";
+
+    private final Game game;
 
     private Texture bg;
     private TextureAtlas atlas;
@@ -38,6 +44,15 @@ public class GameScreen extends BaseScreen {
     private EnemyPool enemyPool;
     private EnemyEmitter enemyEmitter;
     private Sound enemyShipShootSound;
+
+    private GameOver gameOver;
+    private NewGameButton newGameButton;
+
+    private Font font;
+    private int frags;
+    private StringBuilder sbFrags;
+    private StringBuilder sbHP;
+    private StringBuilder sbLevel;
 
     public GameScreen(Game game) {
         this.game = game;
@@ -64,6 +79,14 @@ public class GameScreen extends BaseScreen {
         enemyEmitter = new EnemyEmitter(atlas, enemyPool, worldBounds, enemyShipShootSound);
         playerShip = new PlayerShip(atlas, bulletPool, explosionPool, playerShipShootSound);
 
+        gameOver = new GameOver(atlas);
+        newGameButton = new NewGameButton(atlas, this);
+
+        font = new Font("font/font.fnt", "font/font.png");
+        font.setSize(0.02f);
+        sbFrags = new StringBuilder();
+        sbHP = new StringBuilder();
+        sbLevel = new StringBuilder();
     }
 
     @Override
@@ -102,16 +125,15 @@ public class GameScreen extends BaseScreen {
         for (Star star : stars) {
             star.update(delta);
         }
-        explosionPool.updateActiveSprites(delta);
         if (!playerShip.isDestroyed()) {
             playerShip.update(delta);
             bulletPool.updateActiveSprites(delta);
             enemyPool.updateActiveSprites(delta);
-            enemyEmitter.generate(delta);
+            enemyEmitter.generate(delta, frags);
         }
+        explosionPool.updateActiveSprites(delta);
     }
 
-    // TODO попробовать полигональные формы для проверки коллизий: https://www.codeandweb.com/physicseditor
     private void checkCollisions() {
         if (playerShip.isDestroyed()) {
             return;
@@ -136,6 +158,9 @@ public class GameScreen extends BaseScreen {
                     if (enemyShip.isCollision(bullet)) {
                         enemyShip.damage(bullet.getDamage());
                         bullet.destroy();
+                        if (enemyShip.isDestroyed()) {
+                            frags++;
+                        }
                     }
                 }
             }
@@ -160,9 +185,34 @@ public class GameScreen extends BaseScreen {
             bulletPool.drawActiveSprites(batch);
         }
         explosionPool.drawActiveSprites(batch);
+        printInfo();
         batch.end();
     }
 
+    public void startNewGame() {
+        frags = 0;
+
+        playerShip.startNewGame();
+
+        bulletPool.freeAllActiveObjects();
+        enemyPool.freeAllActiveObjects();
+        explosionPool.freeAllActiveObjects();
+
+        bulletPool.dispose();
+        enemyPool.dispose();
+        explosionPool.dispose();
+    }
+
+    public void printInfo() {
+        sbFrags.setLength(0);
+        font.draw(batch, sbFrags.append(FRAGS).append(frags), worldBounds.getLeft() + MARGIN, worldBounds.getTop() - MARGIN);
+        sbHP.setLength(0);
+        font.draw(batch, sbHP.append(HP).append(playerShip.getHp()), worldBounds.pos.x, worldBounds.getTop() - MARGIN, Align.center);
+        sbLevel.setLength(0);
+        font.draw(batch, sbLevel.append(LEVEL).append(enemyEmitter.getLevel()), worldBounds.getRight() - MARGIN, worldBounds.getTop() - MARGIN, Align.right);
+    }
+
+    // управление и навигация
 
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
@@ -205,4 +255,5 @@ public class GameScreen extends BaseScreen {
         }
         return false;
     }
+
 }

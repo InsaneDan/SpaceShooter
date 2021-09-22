@@ -1,6 +1,5 @@
 package ru.isakov.space.shooter.game.pool;
 
-import com.badlogic.gdx.math.Interpolation;
 import ru.isakov.space.shooter.game.base.SpritesPool;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.sprite.EnemyShip;

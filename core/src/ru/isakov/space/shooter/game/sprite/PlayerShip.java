@@ -11,7 +11,7 @@ import ru.isakov.space.shooter.game.utils.MovementController;
 
 public class PlayerShip extends BaseShip {
 
-    public static final int HP = 2;
+    public static final int HP = 50;
 
     private MovementController controller;
 
@@ -24,10 +24,16 @@ public class PlayerShip extends BaseShip {
         this.bulletV = new Vector2(0, 0.5f);
         this.bulletPos = new Vector2();
         this.bulletHeight = 0.01f;
-        this.bulletDamage = 1;
-        this.shotsPerSecond = 10f;
+        this.bulletDamage = 5;
+        this.shotsPerSecond = 3f;
         this.bulletSound = bulletSound;
         this.hp = HP;
+    }
+
+    public void startNewGame() {
+        flushDestroy();
+        this.hp = HP;
+        this.controller.setToZero();
     }
 
     @Override

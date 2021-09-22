@@ -41,7 +41,7 @@ public class MenuScreen extends BaseScreen {
         super.show();
         bg = new Texture("textures/background.jpg");
         atlas = new TextureAtlas("textures/menuAtlas.tpack");
-        btnAtlas = new TextureAtlas("Textures/Button/BtnAtlas.atlas");
+        btnAtlas = new TextureAtlas("textures/Button/BtnAtlas.atlas");
 
         background = new Background(bg);
         stars = new Star[STAR_COUNT];
