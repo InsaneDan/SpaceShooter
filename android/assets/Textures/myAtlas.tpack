@@ -10,7 +10,7 @@ explosion
   orig: 3072, 3072
   offset: 0, 0
   index: -1
-enemy9
+enemy8
   rotate: false
   xy: 3075, 2567
   size: 776, 506
@@ -31,86 +31,86 @@ main_ship
   orig: 388, 283
   offset: 0, 0
   index: -1
-enemy8
-  rotate: false
-  xy: 3075, 1836
-  size: 390, 255
-  orig: 390, 255
-  offset: 0, 0
-  index: -1
-enemy7
-  rotate: false
-  xy: 3075, 1583
-  size: 414, 251
-  orig: 414, 251
-  offset: 0, 0
-  index: -1
 enemy5
   rotate: false
-  xy: 3075, 1326
+  xy: 3075, 1836
   size: 382, 255
   orig: 382, 255
   offset: 0, 0
   index: -1
+enemy7
+  rotate: false
+  xy: 3075, 1586
+  size: 406, 248
+  orig: 406, 248
+  offset: 0, 0
+  index: -1
 enemy6
   rotate: false
-  xy: 3075, 1067
+  xy: 3075, 1327
   size: 352, 257
   orig: 352, 257
   offset: 0, 0
   index: -1
 enemy4
   rotate: false
-  xy: 3075, 878
+  xy: 3075, 1138
   size: 336, 187
   orig: 336, 187
   offset: 0, 0
   index: -1
 enemy3
   rotate: false
-  xy: 3075, 622
+  xy: 3075, 882
   size: 268, 254
   orig: 268, 254
   offset: 0, 0
   index: -1
 enemy1
   rotate: false
-  xy: 3075, 472
+  xy: 3075, 732
   size: 276, 148
   orig: 276, 148
   offset: 0, 0
   index: -1
 button_new_game
   rotate: false
-  xy: 3075, 398
+  xy: 3075, 658
   size: 523, 72
   orig: 523, 72
   offset: 0, 0
   index: -1
 message_game_over
   rotate: false
-  xy: 3075, 324
+  xy: 3075, 584
   size: 523, 72
   orig: 523, 72
   offset: 0, 0
   index: -1
+hp
+  rotate: false
+  xy: 3465, 2364
+  size: 80, 12
+  orig: 80, 12
+  offset: 0, 0
+  index: -1
 bulletEnemy
   rotate: false
-  xy: 3465, 2360
+  xy: 3345, 1120
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bulletMainShip
   rotate: false
-  xy: 3345, 860
+  xy: 3587, 2549
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 star
   rotate: false
-  xy: 3587, 2555
+  xy: 3429, 1574
   size: 11, 10
   orig: 11, 10
   offset: 0, 0

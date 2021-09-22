@@ -1,16 +1,10 @@
 package ru.isakov.space.shooter.game.sprite;
 
-import com.badlogic.gdx.audio.Sound;
-
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-
 import com.badlogic.gdx.math.Vector2;
 import ru.isakov.space.shooter.game.base.BaseShip;
 import ru.isakov.space.shooter.game.math.Rect;
 import ru.isakov.space.shooter.game.pool.BulletPool;
 import ru.isakov.space.shooter.game.pool.ExplosionPool;
-import ru.isakov.space.shooter.game.utils.EnemySettingsTemplate;
-import ru.isakov.space.shooter.game.utils.Regions;
 
 public class EnemyShip extends BaseShip {
 
@@ -35,7 +29,7 @@ public class EnemyShip extends BaseShip {
         }
         this.bulletPos.set(pos.x, pos.y - getHalfHeight());
         if (getBottom() < worldBounds.getBottom()) {
-            destroy();
+            destroySilently();
         }
     }
 }

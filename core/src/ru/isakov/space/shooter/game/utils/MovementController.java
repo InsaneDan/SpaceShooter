@@ -7,22 +7,20 @@ import ru.isakov.space.shooter.game.sprite.PlayerShip;
 
 public class MovementController {
 
-    private PlayerShip ship;
+    private final PlayerShip ship;
 
-    private static final int INVALID_POINTER = -1; // TODO необходима проверка мультитач
     public static final float MOVE_INTERVAL = 0.00005f;
     public static final float BRAKING = 0.15f;
 
     private Rect worldBounds;
-    private Vector2 destination = new Vector2();
-    private Vector2 tmp = new Vector2();
+    private final Vector2 destination = new Vector2();
+    private final Vector2 tmp = new Vector2();
     private Vector2 touch;
 
     private boolean moveLeft;
     private boolean moveRight;
     private boolean moveUp;
     private boolean moveDown;
-    private int pointerNum = INVALID_POINTER;
 
     public MovementController(PlayerShip ship) {
         this.ship = ship;
@@ -132,7 +130,7 @@ public class MovementController {
         return false;
     }
 
-    private void setToZero() {
+    public void setToZero() {
         moveLeft = false;
         moveRight = false;
         moveUp = false;

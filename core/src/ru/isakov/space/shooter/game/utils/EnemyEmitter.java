@@ -9,8 +9,9 @@ import ru.isakov.space.shooter.game.sprite.EnemyShip;
 
 public class EnemyEmitter {
 
-    public static final float GENERATE_INTERVAL = 5f;
+    public static final float INITIAL_GENERATE_INTERVAL = 3f;
 
+    private final TextureAtlas atlas;
     private final Rect worldBounds;
     private final Sound bulletSound;
 
@@ -18,19 +19,20 @@ public class EnemyEmitter {
 
     private final EnemyPool enemyPool;
 
-    private final TextureAtlas atlas;
+    private int level = 1;
 
     public EnemyEmitter(TextureAtlas atlas, EnemyPool enemyPool, Rect worldBounds, Sound bulletSound) {
         this.atlas = atlas;
         this.worldBounds = worldBounds;
         this.bulletSound = bulletSound;
         this.enemyPool = enemyPool;
-        this.generateTimer = GENERATE_INTERVAL;
+        this.generateTimer = INITIAL_GENERATE_INTERVAL;
     }
 
-    public void generate(float delta) {
+    public void generate(float delta, int frags) {
+        level = frags / 10 + 1;
         generateTimer += delta;
-        if (generateTimer >= GENERATE_INTERVAL) {
+        if (generateTimer >= INITIAL_GENERATE_INTERVAL - level / 5f) {
             generateTimer = 0;
             EnemyShip enemyShip = enemyPool.obtain();
 
@@ -48,15 +50,14 @@ public class EnemyEmitter {
                 shipNum = 4;
             } else if (type < 0.85f) {
                 shipNum = 5;
-            } else if (type < 0.92f) {
+            } else if (type < 0.95f) {
                 shipNum = 6;
-            } else if (type < 0.97f) {
-                shipNum = 7;
             } else {
-                shipNum = 8;
+                shipNum = 7;
             }
 
             enemyShip.set(atlas, new EnemyShipTemplates().get(shipNum), bulletSound);
+            enemyShip.setBulletDamage(enemyShip.getBulletDamage() * level);
             enemyShip.pos.x = MathUtils.random(
                     worldBounds.getLeft() + enemyShip.getHalfWidth(),
                     worldBounds.getRight() - enemyShip.getHalfWidth());
@@ -64,4 +65,7 @@ public class EnemyEmitter {
         }
     }
 
+    public int getLevel() {
+        return level;
+    }
 }

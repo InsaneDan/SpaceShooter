@@ -1,6 +1,5 @@
 package ru.isakov.space.shooter.game.sprite;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import ru.isakov.space.shooter.game.base.BaseButton;
 import ru.isakov.space.shooter.game.math.Rect;
@@ -27,9 +26,10 @@ public class NewGameButton extends BaseButton {
 
     @Override
     public void action() {
-        Game game = gameScreen.getGame();
-        game.setScreen(new GameScreen(game));
-//        gameScreen.startNewGame();
+//        Game game = gameScreen.getGame();
+//        game.setScreen(new GameScreen(game));
+
+        gameScreen.startNewGame();
     }
 
 }
