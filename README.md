@@ -4,10 +4,10 @@ Just to get an impression of what the libGDX is capable of... simple 2D-game bui
 framework.
 
 # SpaceShooter
-![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-Yes-green](https://img.shields.io/badge/Realese-Yes-green) ![https://img.shields.io/badge/Version-1.0-yellow](https://img.shields.io/badge/Version-1.0-yellow)
+![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-No-red](https://img.shields.io/badge/Realese-No-red) ![https://img.shields.io/badge/Version-1.0-yellow](https://img.shields.io/badge/Version-1.0-yellow)
 
-Feel free to download [JAR](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/SpaceShooter_ida-1.0.jar) for desktop or
-[APK](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/SpaceShooter_ida-1.0.apk) for Android
+Feel free to download [JAR](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.jar) for desktop or
+[APK](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.apk) for Android
 
 ----
 
@@ -59,7 +59,7 @@ Module name: SpaceShooter.desktop
   во процессе изменения размера меняется цвет (в max и min точках - исходный цвет);
 - при приближении к цели скорость уменьшается.
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps2.gif)
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps2.gif)
 
 ---
 </details>
@@ -83,7 +83,7 @@ Module name: SpaceShooter.desktop
 - при выравнивании угловой скорости и скорости поворота - объект может уйти в бесконечную петлю,
   если не сдвинуть мишень.
 
-![LibGDX_lesson3_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps3.gif)
+![LibGDX_lesson3_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps3.gif)
 
 ---
 </details>
@@ -113,7 +113,7 @@ Module name: SpaceShooter.desktop
 - запрет выхода за пределы границ экрана;
 - вынес управление кораблем в отдельный класс.
 
-![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps4.gif)
+![LibGDX_lesson4_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps4.gif)
 
 ---
 </details>
@@ -134,7 +134,7 @@ Module name: SpaceShooter.desktop
 - добавлены звуки выстрелов для игрового корабля;
 - добавлена фоновая музыка (в основной класс - SpaceShooter).
 
-![LibGDX_lesson5_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps5.gif)
+![LibGDX_lesson5_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps5.gif)
 
 ---
 </details>
@@ -158,7 +158,7 @@ Module name: SpaceShooter.desktop
   скорости и проверку границ экрана;
 * проверка столкновений (коллизий) не реализована.
 
-![LibGDX_lesson6_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps6.gif)
+![LibGDX_lesson6_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps6.gif)
 
 ---
 </details>
@@ -188,7 +188,7 @@ Module name: SpaceShooter.desktop
 
 Задание: Сдать готовый проект игры
 
-![LibGDX_lesson8_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps8.gif)
+![LibGDX_lesson8_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps8.gif)
 
 ---
 </details>
