@@ -4,10 +4,10 @@ Just to get an impression of what the libGDX is capable of... simple 2D-game bui
 framework.
 
 # SpaceShooter
-![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-Yes-green](https://img.shields.io/badge/Realese-Yes-green) ![https://img.shields.io/badge/Version-1.0-yellow](https://img.shields.io/badge/Version-1.0-yellow)
+![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-No-red](https://img.shields.io/badge/Realese-No-red) ![https://img.shields.io/badge/Version-1.0-yellow](https://img.shields.io/badge/Version-1.0-yellow)
 
-Feel free to download [JAR](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/SpaceShooter_ida-1.0.jar) for desktop or
-[APK](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/SpaceShooter_ida-1.0.apk) for Android
+Feel free to download [JAR](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.jar) for desktop or
+[APK](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.apk) for Android
 
 ----
 
@@ -59,7 +59,7 @@ Module name: SpaceShooter.desktop
   во процессе изменения размера меняется цвет (в max и min точках - исходный цвет);
 - при приближении к цели скорость уменьшается.
 
-![LibGDX_lesson2_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps2.gif)
+![LibGDX_lesson2_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps2.gif)
 
 ---
 </details>
@@ -83,7 +83,7 @@ Module name: SpaceShooter.desktop
 - при выравнивании угловой скорости и скорости поворота - объект может уйти в бесконечную петлю,
   если не сдвинуть мишень.
 
-![LibGDX_lesson3_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps3.gif)
+![LibGDX_lesson3_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps3.gif)
 
 ---
 </details>
@@ -113,7 +113,7 @@ Module name: SpaceShooter.desktop
 - запрет выхода за пределы границ экрана;
 - вынес управление кораблем в отдельный класс.
 
-![LibGDX_lesson4_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps4.gif)
+![LibGDX_lesson4_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps4.gif)
 
 ---
 </details>
@@ -134,7 +134,7 @@ Module name: SpaceShooter.desktop
 - добавлены звуки выстрелов для игрового корабля;
 - добавлена фоновая музыка (в основной класс - SpaceShooter).
 
-![LibGDX_lesson5_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps5.gif)
+![LibGDX_lesson5_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps5.gif)
 
 ---
 </details>
@@ -158,7 +158,7 @@ Module name: SpaceShooter.desktop
   скорости и проверку границ экрана;
 * проверка столкновений (коллизий) не реализована.
 
-![LibGDX_lesson6_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps6.gif)
+![LibGDX_lesson6_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps6.gif)
 
 ---
 </details>
@@ -179,8 +179,8 @@ Module name: SpaceShooter.desktop
   GameScreen закоментирован (как более затратный по ресурсам).
 * добавлены новые корабли и изменена анимация взрыва.
 
-![LibGDX_lesson7_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps7.gif)
-![LibGDX_lesson7_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps7_2.gif)
+![LibGDX_lesson7_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps7.gif)
+![LibGDX_lesson7_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps7_2.gif)
 ---
 </details>
 <details>
@@ -188,12 +188,12 @@ Module name: SpaceShooter.desktop
 
 Задание: Сдать готовый проект игры
 
-![LibGDX_lesson8_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps8.gif)
+![LibGDX_lesson8_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps8.gif)
 
 ---
 </details>
- 
 <details>
+  
 <summary>Дополнительные материалы</summary>
 
 - https://habr.com/post/131931/ - ЛИНЕЙНАЯ АЛГЕБРА для разработчиков игр
@@ -211,31 +211,25 @@ Module name: SpaceShooter.desktop
 </details>
  
 <details>
-<summary>В работе...</summary>
+<summary>Бэклог на доработку...</summary>
 
 * вынести все настройки в отдельный конфигурационный файл!
 * использовать полигональные формы для проверки коллизий: https://www.codeandweb.com/physicseditor
-* избавиться от антипаттерна Magic Number при настройке вражеских кораблей по шаблонам (все
-  параметры в отдельный файл? enum?);
+* избавиться от антипаттерна Magic Number при настройке вражеских кораблей по шаблонам (все параметры в отдельный конфиг. файл? enum?);
 * кнопка выхода из игры, пауза, возврат в стартовое меню;
 * меню настроек (громкость звуков, сложность и др.);
-* power-ups должны появляться при взрыве вражеских кораблей, разлетаются в разных направлениях
-  (в  сторону корабля игрока, не улетают за пределы экрана, исчезают по таймауту) - щиты, ракеты,
-  аптечки, доп.оружие (вторичное/третичное), с повышенным уроном;
-* траектория движения вражеских кораблей - например, движение по кругу, по горизонтали,
-  произвольная траектория + чтобы корабли могли разворачиваться в направлении движения но при
-  этом стрелять в сторону игрока);
+* power-ups должны появляться при взрыве вражеских кораблей, разлетаются в разных направлениях (в сторону корабля игрока, не улетают за пределы экрана, исчезают по таймауту) - щиты, ракеты, аптечки, доп.оружие (вторичное/третичное), оружие с повышенным уроном;
+* траектория движения вражеских кораблей (чтобы могли разворачиваться и сохранять направление движения, при этом стрелять в сторону игрока);
 * возможность задать очередность появления вражеских кораблей (в EnemyEmitter);
-* разные типы снарядов с различной траекторией движения: в сторону корабля игрока,
-  "самонаводящиеся", "разрывные", множественные (несколько одновременно) и др.
+* разные типы снарядов с различной траекторией движения: в сторону корабля игрока, "самонаводящиеся", "разрывные", множественные (несколько одновременно) и др.
 * первичное, вторичное и третичное оружие;
 * уровень с боссом (с различными типами оружия);
-* уровни сложности (background, типы кораблей, оружие) или бесконечный режим;
-* индикатор HP для вражеских кораблей (должен отображаться горизонтально, даже если корабль
-  разворачивается);
-* навигация по кнопкам (подсвечивать активную?) или управление с клавиатуры: старт новой игры -
-  Enter (newGameButton), выход в меню - Esc (menuButton), вход в настройки и т.д.;
-* список ТОП-игроков
+* уровни сложности (background, типы кораблей, оружие)
+* бесконечный режим;
+* индикатор HP для вражеских кораблей (должен отображаться горизонтально, даже если корабль разворачивается);
+* навигация по кнопкам (подсвечивать активную?) или управление с клавиатуры: старт новой игры - Enter (newGameButton), выход в меню - Esc (menuButton), вход в настройки и т.д.;
+* список ТОП-игроков (с синхронизацией между устройствами);
+* перерисовать все спрайты в едином стиле
 </details>
 
 
@@ -246,3 +240,4 @@ Geekbrains
 Преподаватель: Алексей Кутепов  
 Дата проведения: 23.08.2021–16.09.2021
 </details>
+
