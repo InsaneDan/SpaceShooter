@@ -6,14 +6,19 @@ framework.
 # SpaceShooter
 ![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-No-red](https://img.shields.io/badge/Realese-No-red) ![https://img.shields.io/badge/Version-1.0-yellow](https://img.shields.io/badge/Version-1.0-yellow)
 
-Feel free to download [JAR](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.jar) for desktop or
+Feel free to download
+[JAR](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.jar) for desktop
+or
 [APK](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/SpaceShooter_ida-1.0.apk) for Android
 
 ----
 
-Build & Run configuration (Gradle):  
-Main class name: ru.isakov.space.shooter.game.desktop.DesktopLauncher  
-Module name: SpaceShooter.desktop  
+*Run configuration (Gradle)*:  
+* JDK: Java 11    
+* Main class name: ru.isakov.space.shooter.game.desktop.DesktopLauncher  
+* Module name: SpaceShooter.desktop  
+*Build APK(s)*: default  
+*Build JAR*: run dist for Gradle project SpaceShooter:desktop
 
 <details>
 <summary>Урок 1. Установка и настройка инструментов разработки</summary>
@@ -179,8 +184,8 @@ Module name: SpaceShooter.desktop
   GameScreen закоментирован (как более затратный по ресурсам).
 * добавлены новые корабли и изменена анимация взрыва.
 
-![LibGDX_lesson7_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps7.gif)
-![LibGDX_lesson7_homework](https://github.com/InsaneDan/InsaneDan/blob/main/LibGDX/SpaceShooter/LibGDX_sps7_2.gif)
+![LibGDX_lesson7_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps7.gif)
+![LibGDX_lesson7_homework](https://github.com/InsaneDan/SpaceShooter/blob/master/supplements/LibGDX_sps7_2.gif)
 ---
 </details>
 <details>
@@ -230,7 +235,6 @@ Module name: SpaceShooter.desktop
 * навигация по кнопкам (подсвечивать активную?) или управление с клавиатуры: старт новой игры - Enter (newGameButton), выход в меню - Esc (menuButton), вход в настройки и т.д.;
 * список ТОП-игроков (с синхронизацией между устройствами);
 * перерисовать все спрайты в едином стиле
-* "защита" от взлома: хэш всех параметров, при несовпадении - попытка вмешательства?
 </details>
 
 
